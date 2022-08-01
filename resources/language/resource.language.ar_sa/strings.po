@@ -137,8 +137,8 @@ msgstr ""
 
 #: resources/settings.xml
 msgctxt "#32028"
-msgid "Use fanart.tv for widget artwork (increases load times)"
-msgstr "استخدم fanart.tv للعمل الفني الخاص بالويدجيت (يزيد من أوقات التحميل)"
+msgid "Use fanart.tv for widget artwork (slower)"
+msgstr "استخدم fanart.tv للعمل الفني الخاص بالويدجيت (ابطأ)"
 
 #: resources/settings.xml
 msgctxt "#32029"
@@ -167,8 +167,8 @@ msgstr "المشغل الافتراضي"
 
 #: resources/settings.xml
 msgctxt "#32034"
-msgid "Get watched indicators from Trakt"
-msgstr "احصل على تنبيهات و مؤشرات \"تمت المشاهدة\" من Trakt"
+msgid "Get watched indicators and episode counts (slower)"
+msgstr "احصل على مؤشرات المشاهدة وعدد الحلقات من Trakt (ابطأ)"
 
 #: resources/settings.xml
 msgctxt "#32035"
@@ -277,8 +277,7 @@ msgstr "المصادقة فشلت"
 
 #: resources/lib/downloader.py
 msgctxt "#32056"
-msgid ""
-"Either the username or password were invalid. Would you like to try again?"
+msgid "Either the username or password were invalid. Would you like to try again?"
 msgstr "اسم المستخدم أو كلمة المرور غير صحيحة. هل تود إعادة المحاولة مجددا؟"
 
 #: resources/lib/downloader.py
@@ -415,7 +414,7 @@ msgstr "أخرى"
 
 #: resources/settings.xml
 msgctxt "#32081"
-msgid "Show next page item"
+msgid "Next page item"
 msgstr "إظهار عنصر \"الصفحة التالية\" في اخر الويدحيت"
 
 #: resources/settings.xml
@@ -631,9 +630,7 @@ msgstr "تقارير XBMCVFS غير قادرة على إنشاء المسار"
 
 #: resources/lib/context.py
 msgctxt "#32123"
-msgid ""
-"If error persists and the folders are created correctly, please disable "
-"folder path creation checking in TMDBHelper settings."
+msgid "If error persists and the folders are created correctly, please disable folder path creation checking in TMDBHelper settings."
 msgstr ""
 
 #: resources/lib/context.py
@@ -649,8 +646,7 @@ msgstr "إضافة قائمة Trakt إلى مكتبة كودي"
 #: resources/lib/context.py
 msgctxt "#32126"
 msgid "Are you sure you want to add this Trakt list to your Kodi library?"
-msgstr ""
-"هل أنت متأكد من أنك تريد إضافة قائمة Trakt هذه إلى مكتبة كودي الخاصة بك؟"
+msgstr "هل أنت متأكد من أنك تريد إضافة قائمة Trakt هذه إلى مكتبة كودي الخاصة بك؟"
 
 #: resources/lib/context.py
 msgctxt "#32127"
@@ -840,10 +836,8 @@ msgstr "استخدم fanart.tv للعمل الفني الخاص بمراقبة �
 #: resources/lib/context.py
 msgctxt "#32164"
 msgid ""
-"Adding Trakt lists to library is limited to [B]{}[/B] TV Shows and [B]{}[/B] "
-"Movies per list.\n"
-"This limit is set to ensure that the APIs providing data for free are "
-"respected."
+"Adding Trakt lists to library is limited to [B]{}[/B] TV Shows and [B]{}[/B] Movies per list.\n"
+"This limit is set to ensure that the APIs providing data for free are respected."
 msgstr ""
 "إضافة قوائم Trakt إلى المكتبة تقتصر على [B] {} [/ B] مسلسل و [B] {} [/ B] "
 "فلم في كل قائمة.\n"
@@ -876,9 +870,7 @@ msgstr "تسجيل الخروج من حساب Trakt ..."
 
 #: resources/lib/libraryupdate.py
 msgctxt "#32170"
-msgid ""
-"[B][COLOR=red]Warning[/COLOR][/B] This list contains [B]{}[/B] TV Shows and "
-"[B]{}[/B] Movies"
+msgid "[B][COLOR=red]Warning[/COLOR][/B] This list contains [B]{}[/B] TV Shows and [B]{}[/B] Movies"
 msgstr ""
 "[B][COLOR=red]تحذير[/COLOR][/B] هذه القائمة تحتوي على [B]{}[/B] مسلسلات و [B]"
 "{}[/B] أفلام"
@@ -1800,8 +1792,8 @@ msgstr "المجموعات"
 
 #: resources/settings.xml
 msgctxt "#32346"
-msgid "Use hack to get Kodi Trakt addon to scrobble local files"
-msgstr "اجبر الإضافة \"Kodi Trakt\" على فحص الملفات المحلية"
+msgid "Resend local files (fix Trakt scrobbling bug)"
+msgstr "إعادة إرسال الملفات المحلية (إصلاح خطأ المزامنة لـ Trakt)"
 
 #: resources/settings.xml
 msgctxt "#32347"
@@ -1896,12 +1888,12 @@ msgstr "هل تريد إضافة هذا العنصر إلى المكتبة ال�
 
 #: resources/settings.xml
 msgctxt "#32363"
-msgid "Delay before playing after dummy resolves (seconds)"
+msgid "Delay after resolving (seconds)"
 msgstr ""
 
 #: resources/settings.xml
 msgctxt "#32364"
-msgid "Reroute PlayMedia to call xbmc.Player() directly"
+msgid "Reroute PlayMedia to xbmc.Player()"
 msgstr ""
 
 #: resources/lib/addon/plugin.py
@@ -1946,7 +1938,7 @@ msgstr ""
 
 #: resources/settings.xml
 msgctxt "#32373"
-msgid "Restrict dummy setResolvedUrl method to library strm"
+msgid "Restrict to library strm"
 msgstr ""
 
 #: resources/lib/player/players.py
@@ -2618,9 +2610,9 @@ msgstr "استخدم فقط إذا تم إلغاء تنشيط مفتاح api ا�
 
 #: resources/settings.xml
 msgctxt "#32021"
-msgid "Use fanart.tv for plugin artwork (increases load times)"
+msgid "Use fanart.tv for plugin artwork (slower)"
 msgstr ""
-"استخدم fanart.tv للعمل الفني الخاص بالمكون الإضافي (يزيد من أوقات التحميل)"
+"استخدم fanart.tv للعمل الفني الخاص بالمكون الإضافي (ابطأ)"
 
 #: resources/settings.xml
 msgctxt "#32022"

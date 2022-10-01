@@ -1,7 +1,7 @@
 from xbmcgui import ListItem as KodiListItem
+from tmdbhelper.parser import try_int, merge_two_dicts
 from resources.lib.addon.consts import ACCEPTED_MEDIATYPES, PARAM_WIDGETS_RELOAD
-from resources.lib.addon.plugin import ADDONPATH, PLUGINPATH, convert_media_type, get_setting, get_condvisibility, get_localized
-from resources.lib.addon.parser import try_int, encode_url, merge_two_dicts
+from resources.lib.addon.plugin import ADDONPATH, PLUGINPATH, convert_media_type, get_setting, get_condvisibility, get_localized, encode_url
 from resources.lib.addon.tmdate import is_unaired_timestamp
 from resources.lib.addon.logger import kodi_log
 
@@ -107,8 +107,7 @@ class _ListItem(object):
 
     def set_context_menu(self):
         from resources.lib.items.context import ContextMenu
-        for k, v in ContextMenu(self).get():
-            self.infoproperties[k] = v
+        self.context_menu += ContextMenu(self).get()
 
     def set_playcount(self, playcount):
         return
@@ -131,7 +130,7 @@ class _ListItem(object):
     def _set_params_reroute_skinshortcuts(self):
         self.params['widget'] = 'true'
         # Reroute sortable lists to display options in skinshortcuts
-        if self.infoproperties.get('tmdbhelper.context.sorting'):
+        if self.infoproperties.get('is_sortable'):
             self.params['parent_info'] = self.params['info']
             self.params['info'] = 'trakt_sortby'
 
@@ -283,7 +282,9 @@ class _Video(_ListItem):
         else:
             self.params['info'] = 'related'
         self.is_folder = False
-        self.infoproperties['tmdbhelper.context.playusing'] = f'{self.get_url()}&ignore_default=true'
+        self.context_menu.insert(0, (
+            '$ADDON[plugin.video.themoviedb.helper 32322]',
+            f'RunPlugin({self.get_url()}&ignore_default=true)',))
 
     def _set_params_reroute_details(self):
         self._set_params_reroute_default()

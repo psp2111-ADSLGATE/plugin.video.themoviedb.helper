@@ -1,7 +1,7 @@
 from xbmcgui import Dialog, INPUT_NUMERIC
 from xbmcaddon import Addon as KodiAddon
 from resources.lib.addon.plugin import ADDONPATH, get_localized
-from resources.lib.addon.parser import try_int
+from tmdbhelper.parser import try_int
 from resources.lib.addon.dialog import BusyDialog
 from resources.lib.addon.consts import PLAYERS_BASEDIR_SAVE, PLAYERS_PRIORITY
 from resources.lib.files.futils import dumps_to_file, delete_file
@@ -181,11 +181,14 @@ class ConfigurePlayers():
     def _get_dialog_players(players):
         return [
             ListItem(
-                label=v.get('name'), label2=k,
+                label=f"{'[DISABLED] ' if v.get('disabled', 'false').lower() == 'true' else ''}{v.get('name')}",
+                label2=k,
                 art={
                     'thumb': v.get('icon', '').format(ADDONPATH)
                     or KodiAddon(v.get('plugin', '')).getAddonInfo('icon')}).get_listitem()
-            for k, v in sorted(players.items(), key=lambda i: try_int(i[1].get('priority')) or PLAYERS_PRIORITY)]
+            for k, v in sorted(
+                players.items(),
+                key=lambda i: try_int(i[1].get('priority')) or PLAYERS_PRIORITY)]
 
     def get_players(self):
         self.players = {'create_player': {'name': 'Create new player', 'icon': '-', 'priority': 1}}

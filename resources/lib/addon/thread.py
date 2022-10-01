@@ -1,14 +1,13 @@
 
 from xbmc import Monitor
 from threading import Thread
-from resources.lib.addon.plugin import get_setting
+from resources.lib.addon.plugin import get_setting, encode_url
 from resources.lib.addon.logger import kodi_log
 from resources.lib.addon.tmdate import set_timestamp, get_timestamp
 from resources.lib.addon.window import get_property
-from resources.lib.addon.parser import encode_url
 
 
-def has_property_lock(property_name, timeout=5, polling=0.2):
+def has_property_lock(property_name, timeout=5, polling=0.05):
     """ Checks for a window property lock and wait for it to be cleared before continuing
     Returns True after property clears if was locked
     """
@@ -26,7 +25,7 @@ def has_property_lock(property_name, timeout=5, polling=0.2):
     return True
 
 
-def use_thread_lock(property_name, timeout=10, polling=0.1, combine_name=False):
+def use_thread_lock(property_name, timeout=10, polling=0.05, combine_name=False):
     def decorator(func):
         def wrapper(self, *args, **kwargs):
             name = encode_url(f"{property_name}.{'.'.join(args)}", **kwargs) if combine_name else property_name
@@ -51,6 +50,7 @@ class ParallelThread():
         thread_max = get_setting('max_threads', mode='int') or len(items)
         self.queue = [None] * len(items)
         self._pool = [None] * thread_max
+        self._exit = False
         for x, i in enumerate(items):
             n = x
             while n >= thread_max and not mon.abortRequested():  # Hit our thread limit so look for a spare spot in the queue
@@ -75,6 +75,8 @@ class ParallelThread():
 
     def __exit__(self, exc_type, exc_value, exc_traceback):
         for i in self._pool:
+            if self._exit:
+                break
             try:
                 i.join()
             except AttributeError:  # is None

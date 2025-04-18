@@ -739,7 +739,7 @@
                     <constraints>
                         <minimum>1</minimum>
                         <step>1</step>
-                        <maximum>3</maximum>
+                        <maximum>5</maximum>
                     </constraints>
                     <control type="slider" format="integer">
                         <popup>false</popup>
@@ -751,7 +751,7 @@
                     <constraints>
                         <minimum>1</minimum>
                         <step>1</step>
-                        <maximum>3</maximum>
+                        <maximum>5</maximum>
                     </constraints>
                     <control type="slider" format="integer">
                         <popup>false</popup>
@@ -763,7 +763,7 @@
                     <constraints>
                         <minimum>1</minimum>
                         <step>1</step>
-                        <maximum>3</maximum>
+                        <maximum>5</maximum>
                     </constraints>
                     <control type="slider" format="integer">
                         <popup>false</popup>

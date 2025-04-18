@@ -43,9 +43,9 @@ class MenuAttributes:
 
 class Menu(MenuAttributes):
     items = {
+        'watchlist': ItemWatchlist,
         'watched': ItemWatched,
         'unwatched': ItemUnwatched,
-        'watchlist': ItemWatchlist,
         'collection': ItemCollection,
         'favorites': ItemFavorites,
         'userlist': ItemUserList,
